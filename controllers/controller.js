@@ -43,8 +43,8 @@ router.post("/upload", function(req, res){
         fs.rename(file.path, path.join(form.uploadDir, file.name));  // rename file to original name
         var getDir = path.join(form.uploadDir, file.name);
         base64Img.base64(getDir, function(err, data){
-            var base64Path = path.join(__dirname,"../public/temp/base64.txt")
-            var imgPath = path.join(__dirname,"../public/temp/img.txt");
+            var base64Path = path.join(__dirname,"../public/tmp/base64.txt")
+            var imgPath = path.join(__dirname,"../public/tmp/img.txt");
             fs.writeFile(base64Path, data, function(err){
                 if(err) throw err;
             });

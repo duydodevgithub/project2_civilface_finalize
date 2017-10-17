@@ -12,6 +12,7 @@ var path = require("path");
 var app = express();
 
 // Serve static content for the app from the directory in the application directory.
+app.use(express.static("public"));
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.static(path.join(__dirname,"controllers")));
 app.use(express.static(path.join(__dirname,"public/imgupload")));

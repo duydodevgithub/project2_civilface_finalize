@@ -92,7 +92,7 @@ var civilface = {
     },
 
     getDetails_base64 : function(cb){
-      var getDir = path.join(__dirname,"../public/temp/base64.txt");
+      var getDir = path.join(__dirname,"../public/tmp/base64.txt");
       fs.readFile(getDir, "utf8", function(err, data){
         if(err) throw err;
         request({
@@ -106,7 +106,7 @@ var civilface = {
           body: '{  "image": "'+ data +'",  "selector": "ROLL"}'
         }, function (error, response, body) {
           //function to get uploaded img path
-            fs.readFile(path.join(__dirname,"../public/temp/img.txt"), function(err, data2){
+            fs.readFile(path.join(__dirname,"../public/tmp/img.txt"), function(err, data2){
               var imgURL = data2;
               var responseData = JSON.parse(body);
               responseData = responseData.images[0].faces[0].attributes;
